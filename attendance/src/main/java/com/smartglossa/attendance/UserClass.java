@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 public class UserClass {
 	Connection conn = null;
 	Statement stmt = null;
@@ -25,6 +28,33 @@ public class UserClass {
 			// TODO: handle finally clause
 			closeConnection();
 		}
+	}
+	public void update(int userId,String name,String address,String contactNo,String email)throws SQLException{
+		try {
+			String query = "update user set name='"+name+"',address'"+address+"',contactNo'"+contactNo+"',email'"+email+"' where userId="+userId+"";
+			stmt.execute(query);
+		} finally {
+			// TODO: handle finally clause
+			closeConnection();
+		}
+	}
+	public JSONObject getOne(int userId)throws SQLException{
+		JSONObject obj = new JSONObject();
+		try {
+			String query = "select * from user where userId="+userId+"";
+            rs = stmt.executeQuery(query);	
+            if(rs.next()){
+            	obj.put("userId", rs.getInt("userId"));
+            	obj.put("name", rs.getString("name"));
+            	obj.put("address", rs.getString("address"));
+            	obj.put("conNo", rs.getString("contactNo"));
+            	obj.put("email", rs.getString("email"));
+            }
+		} finally {
+			// TODO: handle finally clause
+			closeConnection();
+		}
+		return obj;
 	}
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
