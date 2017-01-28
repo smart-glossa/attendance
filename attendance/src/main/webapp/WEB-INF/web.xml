@@ -8,9 +8,20 @@
     	<servlet-name>UserServlet</servlet-name>
     	<servlet-class>com.smartglossa.attendance.UserServlet</servlet-class>
     </servlet>
+    <servlet>
+    	<description>
+    	</description>
+    	<display-name>AttendanceServlet</display-name>
+    	<servlet-name>AttendanceServlet</servlet-name>
+    	<servlet-class>com.smartglossa.attendance.AttendanceServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
     	<servlet-name>UserServlet</servlet-name>
     	<url-pattern>/User</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>AttendanceServlet</servlet-name>
+    	<url-pattern>/Attendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
