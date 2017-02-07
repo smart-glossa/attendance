@@ -84,7 +84,8 @@ function getAll(){
             alert(result);
         })
  }
-$(document).on('keyup', '#uId', function(){
+$(document).on('keyup','#uId', function(){
+	var uId = $('#uId').val();
 	if(uId !== ""){
 	var url = "/attendance/User?operation=getOne&userId="+uId+"";
 	$.ajax({
