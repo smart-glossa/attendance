@@ -21,7 +21,11 @@ function user(){
 	user += "<\/tr>";
 	user += "<tr>";
 	user += "<td>Email Id<\/td>";
-	user +=  "<td><input type=\"text\" id=\"email\" placeholder=\"Email Id\"<\/td>";
+	user += "<td><input type=\"text\" id=\"email\" placeholder=\"Email Id\"<\/td>";
+	user += "<\/tr>";
+	user += "<tr>";
+	user += "<td><input type=\"submit\" value=\"Add\" id=\"add\">";
+	user += "<input type=\"submit\" value=\"Update\" id=\"update\"><\/td>";
 	user += "<\/tr>";
 	user += "<\/table>";
 	user += "<\/div>";
@@ -47,6 +51,10 @@ function attendance(){
 	atten += "<tr>";
 	atten += "<td>Reason*:<\/td>";
 	atten += "<td><input type=\"text\" id=\"reason\" placeholder=\"Reason\"<\/td>";
+	atten += "<\/tr>";
+	atten += "<tr>";
+	atten += "<td><input type=\"submit\" value=\"Add\" id=\"addAtten\">";
+	atten += "<input type=\"submit\" value=\"Update\" id=\"updateAtten\"><\/td>";
 	atten += "<\/tr>";
 	atten += "<\/table>";
 	atten += "<\/div>";
