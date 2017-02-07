@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	getAll();
 	$(document).on('click', '#addAtten', function() {
 		  var userId = $('#uId').val();
 		  var date = $('#date').val();
@@ -47,15 +48,6 @@ $(document).ready(function(){
 				table += "<tr>"
 			    table += "<td>" + result[i].userId + "</td>"
 	            table += "<td>" + result[i].date + "</td>"
-				var Atten = result[i].presents;
-				if(Atten==1){
-					var aa = "Present";
-				}else{
-					var aa = "Absent";
-				}
-				table += "<td>" + aa + "</td>"
-				table += "</tr>"
-
 			}
 			table += "</table>";
 			$(".attandance")[0].innerHTML = table;

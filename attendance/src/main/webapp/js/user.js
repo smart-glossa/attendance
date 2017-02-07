@@ -7,7 +7,7 @@ $(document).on('click','#add',function(){
 	var contactNo = $('#conNo').val();
 	var email = $('#email').val();
 	 if (userId === "") {
-		    $('#userId').focus().css('outline-color', 'red');
+		    $('#uId').focus().css('outline-color', 'red');
 		    return false;
 		  }
 	 if (name === "") {
@@ -99,7 +99,7 @@ $(document).on('keyup','#uId', function(){
 	})
 	.done(function(result){
 		var res = JSON.parse(result);
-		$('#uId').val(res.userId);
+		//$('#uId').val(res.userId);
 		$('#name').val(res.name);
 		$('#addr').val(res.address);
 		$('#conNo').val(res.conNo);
@@ -109,7 +109,6 @@ $(document).on('keyup','#uId', function(){
         alert(result);
       })
 	}else{
-		$('#uIs').val("");
 		$('#name').val("");
 		$('#addr').val("");
 		$('#conNo').val("");
