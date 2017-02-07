@@ -5,5 +5,4 @@ public class UserConstants {
     public static final String USERNAME = System.getProperty("attendance.username");
     public static final String PASSWORD = System.getProperty("attendance.password");
     public static final String DATABASE = System.getProperty("attendance.database");
-
 }

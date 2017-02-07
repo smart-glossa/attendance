@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,7 +33,6 @@ public class UserServlet extends HttpServlet {
         		  user.addUser(userId, name, address, contactNo, email);
 				  obj.put("status", 1);
 			} catch (Exception e) {
-				// TODO: handle exception
 				obj.put("status", 0);
 				e.printStackTrace();
 			}
@@ -65,6 +65,16 @@ public class UserServlet extends HttpServlet {
 				e.printStackTrace();
 			}
         	  response.getWriter().println(obj);
+          }else if(op.equals("getAll")){
+        	  JSONArray array = new JSONArray();
+        	  try {
+				UserClass user = new UserClass();
+				array = user.getAll();
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+        	  response.getWriter().print(array);
           }
 			}
 	

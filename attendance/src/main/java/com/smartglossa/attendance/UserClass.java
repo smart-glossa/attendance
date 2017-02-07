@@ -56,6 +56,26 @@ public class UserClass {
 		}
 		return obj;
 	}
+	public JSONArray getAll()throws SQLException{
+		JSONArray array = new JSONArray();
+		try {
+			String query = "select * from user";
+			rs = stmt.executeQuery(query);
+			while(rs.next()){
+				JSONObject obj = new JSONObject();
+				obj.put("userId", rs.getInt("userId"));
+            	obj.put("name", rs.getString("name"));
+            	obj.put("address", rs.getString("address"));
+            	obj.put("conNo", rs.getString("contactNo"));
+            	obj.put("email", rs.getString("email"));
+            	array.put(obj);
+			}
+		} finally {
+			// TODO: handle finally clause
+			closeConnection();
+		}
+		return array;
+	}
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mysql://" + UserConstants.MYSQL_SERVER + "/" + UserConstants.DATABASE,

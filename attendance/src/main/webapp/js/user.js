@@ -1,13 +1,12 @@
 $(document).ready(function(){
 	
-});
+
 $(document).on('click','#add',function(){
 	var  userId  =$('#uId').val();
 	var  name = $('#name').val();
 	var address = $('#addr').val();
 	var contactNo = $('#conNo').val();
 	var email = $('#email').val();
-	var url = "/attendance/User?operation=addUser&uId="+userId+"name='"+name+"'&addr='"+address+"'conNo='"+contactNo+"'email='"+email+"'";
 	 if (userId === "") {
 		    $('#userId').focus().css('outline-color', 'red');
 		    return false;
@@ -28,7 +27,8 @@ $(document).on('click','#add',function(){
 		    $('#email').focus().css('outline-color', 'red');
 		    return false;
 		  }
-	$.ajax({
+	 var url = "/attendance/User?operation=addUser&uId="+userId+"&name="+name+"&addr="+address+"&conNo="+contactNo+"&email="+email+"";
+	  $.ajax({
 		url:url,
 		type:'POST'
 	})
@@ -84,3 +84,30 @@ function getAll(){
             alert(result);
         })
  }
+$(document).on('keyup', '#uId', function(){
+	if(uId !== ""){
+	var url = "/attendance/User?operation=getOne&userId="+uId+"";
+	$.ajax({
+		url: url,
+		type: 'POST'
+	})
+	.done(function(result){
+		var res = JSON.parse(result);
+		$('#uId').val(res.userId);
+		$('#name').val(res.name);
+		$('#addr').val(res.address);
+		$('#conNo').val(res.conNo);
+		$('#email').val(res.email);
+	})
+	.fail(function(result) {
+        alert(result);
+      })
+	}else{
+		$('#uIs').val("");
+		$('#name').val("");
+		$('#addr').val("");
+		$('#conNo').val("");
+		$('#email').val("");
+	}
+	})
+});
