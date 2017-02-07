@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	
-
 $(document).on('click','#add',function(){
 	var  userId  =$('#uId').val();
 	var  name = $('#name').val();

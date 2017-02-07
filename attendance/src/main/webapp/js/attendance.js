@@ -38,15 +38,15 @@ function attendance(){
 	atten += "<table>";
 	atten += "<tr>";
 	atten += "<td>User Id*:<\/td>";
-	atten += "<td>"
+	atten += "<td><input type=\"text\" id=\"uId\" placeholder=\"User Id\"<\/td>";
 	atten += "<\/tr>";
 	atten += "<tr>";
 	atten += "<td>Date<\/td>";
-	atten += "<td><input type=\"date\" id=\"date\" placeholder=\"Date\"<\/td>"
+	atten += "<td><input class=\"textbox-n\" type=\"text\" onfocus=\"(this.type='date')\"  id=\"date\" placeholder=\"Date\"<\/td>"
 	atten += "<\/tr>";
 	atten += "<tr>";
-	atten += "<td>Present<\/td>";
-	atten += "<td><input type=\"text\" id=\"date\" placeholder=\"Present\"<\/td>";
+	atten += "<td>Present <input type=\"checkbox\" name=\"present\" id=\"present\" value=\"present\"><\/td>";
+	atten += "<td>Absent <input type=\"checkbox\" name=\"present\"  id=\"present\" value=\"absent\"><\/td>";
 	atten += "<\/tr>";
 	atten += "<tr>";
 	atten += "<td>Reason*:<\/td>";

@@ -9,7 +9,7 @@
     	<servlet-class>com.smartglossa.attendance.UserServlet</servlet-class>
     </servlet>
     <servlet>
-    	<description>
+    	<description>  
     	</description>
     	<display-name>AttendanceServlet</display-name>
     	<servlet-name>AttendanceServlet</servlet-name>

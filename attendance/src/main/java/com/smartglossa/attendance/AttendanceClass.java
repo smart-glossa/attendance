@@ -1,5 +1,6 @@
 package com.smartglossa.attendance;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,14 +15,13 @@ public class AttendanceClass {
 	Statement stmt = null;
 	ResultSet rs = null;
 
-	public AttendanceClass() throws ClassNotFoundException, SQLException {
+	public AttendanceClass() throws ClassNotFoundException, SQLException, IOException {
 		openConnection();
 	}
 	public void addAttendance(int userId,String date,boolean present,String reason)throws SQLException{
 		try {
 			String query = "insert into attendance(userId,date,present,reason) values("+userId+",'"+date+"',"+present+",'"+reason+"')";
 			stmt.execute(query);
-			
 		} finally {
           closeConnection();
 		}

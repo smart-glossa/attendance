@@ -38,6 +38,8 @@ public class AttendanceServlet extends HttpServlet {
 			          obj.put("status", 1);
 				} catch (Exception e) {
 					// TODO: handle exception
+					e.printStackTrace();
+					obj.put("message",e.getMessage());
 					obj.put("status", 0);
 				}
             	  response.getWriter().print(obj);
@@ -50,6 +52,7 @@ public class AttendanceServlet extends HttpServlet {
 				} catch (Exception e) {
 					// TODO: handle exception
 					obj.put("status", 0);
+					e.printStackTrace();
 				}
             	 response.getWriter().print(obj);
               }else if(op.equals("getAllAttendance")){
