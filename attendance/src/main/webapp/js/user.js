@@ -40,19 +40,24 @@ $(document).on('click','#add',function(){
 	})
  });
 $(document).on('click','#update',function(){
-	var userId = $('#userId').val();
-	var  name = $('#name').val();
+	var userId = $('#uId').val();
+	var name = $('#name').val();
 	var address = $('#addr').val();
 	var contactNo = $('#conNo').val();
 	var email = $('#email').val();
-	var url = "/attendance/User?operation=userUpdate&userId="+ userId +"&name=" + name +"&contactNo="+ contactNo +"&email=" +email;
+	var url = "/attendance/User?operation=userUpdate&uId=" +userId+ "&name=" +name+ "&addr=" +address+ "&conNo=" +contactNo+ "&email=" +email+"";
 	$.ajax({
 		url:url,
 		type:'POST'
 	})
 	.done(function(result){
+		getAll();
+		$('#uIs').val("");
+		$('#name').val("");
+		$('#addr').val("");
+		$('#conNo').val("");
+		$('#email').val("");
 		alert("Updated Successfully");
-		
 	})
 	.fail(function(result){
 		alert(result);
@@ -76,9 +81,10 @@ function getAll(){
                 table += '<td>' + res[i].address + '</td>';
                 table += '<td>' + res[i].contactNo + '</td>';
                 table += '<td>' + res[i].email + '</td>';
+                table += '<td><img src="images/delete.jpg" height="35px" width="35px" class="delete"></td></tr>';
             }
             table += '</table>';
-            $('.getAllCus')[0].innerHTML = table;
+            $('.getAll')[0].innerHTML = table;
         })
         .fail(function(result) {
             alert(result);
@@ -87,7 +93,7 @@ function getAll(){
 $(document).on('keyup','#uId', function(){
 	var uId = $('#uId').val();
 	if(uId !== ""){
-	var url = "/attendance/User?operation=getOne&userId="+uId+"";
+	var url = "/attendance/User?operation=getOne&uId="+uId+"";
 	$.ajax({
 		url: url,
 		type: 'POST'
@@ -111,4 +117,20 @@ $(document).on('keyup','#uId', function(){
 		$('#email').val("");
 	}
 	})
+	$(document).on('click', '.delete', function() {
+		  var td = $(this).parent();
+		  var tr = td.parent();
+		  var userId = tr.children()[0].innerHTML;
+		  var url = "/Finance/finance?operation=deleteCustomer&userId=" + userId +"";
+		  $.ajax({
+		      url: url,
+		      type: 'POST'
+		    })
+		    .done(function(result) {
+		      tr.remove();
+		    });
+		  fail(function(result) {
+		    alert(result);
+		  })
+		});
 });

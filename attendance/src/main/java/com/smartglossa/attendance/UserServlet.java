@@ -55,7 +55,7 @@ public class UserServlet extends HttpServlet {
         	  response.getWriter().println(obj);
           }else if(op.equals("getOne")){
         	  JSONObject obj = new JSONObject();
-        	  int userId = Integer.parseInt(request.getParameter("userId"));
+        	  int userId = Integer.parseInt(request.getParameter("uId"));
         	  try {
 				UserClass user = new UserClass();
 				obj = user.getOne(userId);
@@ -75,6 +75,18 @@ public class UserServlet extends HttpServlet {
 				e.printStackTrace();
 			}
         	  response.getWriter().print(array);
+          }else if(op.equals("deleteUser")){
+        	  JSONObject obj = new JSONObject();
+        	  int userId = Integer.parseInt(request.getParameter("uId"));
+        	  try {
+				UserClass user = new UserClass();
+				user.deleteUser(userId);
+				obj.put("status", 1);
+			} catch (Exception e) {
+				e.printStackTrace();
+				obj.put("status", 0);
+			}
+        	  response.getWriter().print(obj);
           }
 			}
 	

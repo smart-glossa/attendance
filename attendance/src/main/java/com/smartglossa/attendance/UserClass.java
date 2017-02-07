@@ -76,6 +76,17 @@ public class UserClass {
 		}
 		return array;
 	}
+	public void deleteUser(int userId) throws SQLException {
+		JSONObject obj = new JSONObject();
+		try {
+			String query = "delete from user where userId="+userId+"";
+			stmt.execute(query);
+		} finally {
+			// TODO: handle finally clause
+			closeConnection();
+		}
+	}
+	
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mysql://" + UserConstants.MYSQL_SERVER + "/" + UserConstants.DATABASE,
