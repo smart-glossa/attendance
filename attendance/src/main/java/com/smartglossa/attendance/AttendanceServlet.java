@@ -30,8 +30,13 @@ public class AttendanceServlet extends HttpServlet {
             	  JSONObject obj = new JSONObject();
             	  int userId = Integer.parseInt(request.getParameter("uId"));
             	  String date = request.getParameter("date");
-            	  boolean present = Boolean.parseBoolean(request.getParameter("present"));
+            	 // boolean present = Boolean.parseBoolean(request.getParameter("present"));
             	  String reason = request.getParameter("reason");
+            	  boolean present;
+          		if(request.getParameter("present").equals("absent"))
+          		    present = false;
+          		else
+          		    present = true;
             	  try {
             		  AttendanceClass atten = new AttendanceClass();
             		  atten.addAttendance(userId, date, present, reason);
@@ -81,6 +86,8 @@ public class AttendanceServlet extends HttpServlet {
 					e.printStackTrace();
 				}
             	 response.getWriter().print(obj);
+              }else if(op.equals("getDate")){
+            	  
               }
 	}
 }

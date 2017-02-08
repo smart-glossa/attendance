@@ -29,6 +29,7 @@ function user(){
 	user += "<\/tr>";
 	user += "<\/table>";
 	user += "<\/div>";
+	user += "<div class=\"getAllAtten\"><\/div>";
 	$('.user')[0].innerHTML = user;
 }
 function attendance(){
