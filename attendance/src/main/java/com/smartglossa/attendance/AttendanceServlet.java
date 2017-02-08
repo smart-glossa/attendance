@@ -1,6 +1,8 @@
 package com.smartglossa.attendance;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.Date;
 
 public class AttendanceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -16,20 +19,21 @@ public class AttendanceServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
               String op = request.getParameter("operation");
               if(op.equals("addAttendance")){
+            	 // Date datesystem= new Date();
             	  JSONObject obj = new JSONObject();
             	  int userId = Integer.parseInt(request.getParameter("uId"));
-            	  String date = request.getParameter("date");
+            	  //String date = request.getParameter("date");
+            	 // String date = request.getParameter("date");
+            	 //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             	 // boolean present = Boolean.parseBoolean(request.getParameter("present"));
             	  String reason = request.getParameter("reason");
             	  boolean present;
@@ -39,7 +43,7 @@ public class AttendanceServlet extends HttpServlet {
           		    present = true;
             	  try {
             		  AttendanceClass atten = new AttendanceClass();
-            		  atten.addAttendance(userId, date, present, reason);
+            		  atten.addAttendance(userId, present, reason);
 			          obj.put("status", 1);
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -87,7 +91,18 @@ public class AttendanceServlet extends HttpServlet {
 				}
             	 response.getWriter().print(obj);
               }else if(op.equals("getDate")){
-            	  
+            	  JSONObject obj = new JSONObject();
+            	  String date = request.getParameter("date");
+            	  try {
+					AttendanceClass atten = new AttendanceClass();
+					obj = atten.getDate(date);
+				} catch (Exception e) {
+					// TODO: handle exception
+					e.printStackTrace();
+					obj.put("message",e.getMessage());
+					obj.put("status", 0);
+				}
+            	  response.getWriter().print(obj);
               }
 	}
 }

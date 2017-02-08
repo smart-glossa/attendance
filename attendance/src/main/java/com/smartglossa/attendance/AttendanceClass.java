@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,9 +21,13 @@ public class AttendanceClass {
 	public AttendanceClass() throws ClassNotFoundException, SQLException, IOException {
 		openConnection();
 	}
-	public void addAttendance(int userId,String date,boolean present,String reason)throws SQLException{
+	public void addAttendance(int userId,boolean present,String reason)throws SQLException, ParseException{
 		try {
-			String query = "insert into attendance(userId,date,present,reason) values("+userId+",'"+date+"',"+present+",'"+reason+"')";
+      	    //Date datesystem= new Date();date time day
+      	  //SimpleDateFormat sm = new SimpleDateFormat("MM-dd-yyyy");
+      	 // String Date = sm.format(Date);
+      	//java.util.Date date = new java.text.SimpleDateFormat("dd.MM.yyyy");
+			String query = "insert into attendance(userId,date,present,reason) values("+userId+",CURDATE(),"+present+",'"+reason+"')";
 			stmt.execute(query);
 		} finally {
           closeConnection();
@@ -71,7 +78,20 @@ public class AttendanceClass {
 			closeConnection();
 		}
 	}
-
+	public JSONObject getDate(String date)throws SQLException{
+		JSONObject obj = new JSONObject();
+		try {
+			String query = "select present from attendance where date="+date+"";
+			rs = stmt.executeQuery(query);
+			if(rs.next()){
+				obj.put("present", rs.getBoolean("present"));
+			}
+		} finally {
+			// TODO: handle finally clause
+			closeConnection();
+		}
+		return obj;
+	}
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");
 		conn = DriverManager.getConnection("jdbc:mysql://" + UserConstants.MYSQL_SERVER + "/" + UserConstants.DATABASE,
