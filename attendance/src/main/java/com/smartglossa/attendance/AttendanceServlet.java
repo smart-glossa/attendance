@@ -85,7 +85,6 @@ public class AttendanceServlet extends HttpServlet {
 					atten.updateAttendance(userId, date, present, reason);
 					obj.put("status", 1);
 				} catch (Exception e) {
-					// TODO: handle exception
 					obj.put("status", 0);
 					e.printStackTrace();
 				}
@@ -97,7 +96,6 @@ public class AttendanceServlet extends HttpServlet {
 					AttendanceClass atten = new AttendanceClass();
 					obj = atten.getDate(date);
 				} catch (Exception e) {
-					// TODO: handle exception
 					e.printStackTrace();
 					obj.put("message",e.getMessage());
 					obj.put("status", 0);

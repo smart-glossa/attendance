@@ -81,7 +81,7 @@ public class AttendanceClass {
 	public JSONObject getDate(String date)throws SQLException{
 		JSONObject obj = new JSONObject();
 		try {
-			String query = "select present from attendance where date="+date+"";
+			String query = "select present from attendance where date='"+date+"'";
 			rs = stmt.executeQuery(query);
 			if(rs.next()){
 				obj.put("present", rs.getBoolean("present"));
