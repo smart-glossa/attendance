@@ -88,7 +88,5 @@ public class UserServlet extends HttpServlet {
 			}
         	  response.getWriter().print(obj);
           }
-			}
-	
-
+	}
 }

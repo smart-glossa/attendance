@@ -61,3 +61,24 @@ function attendance(){
 	atten += "<\/div>";
 	$('.atten')[0].innerHTML = atten;
 }
+function present(){
+	var present = "";
+	present += "<div class=\"present\">"; 
+	present += "<h2>PRESENTS AND ABSENT<\/h2>";
+	present += "<table>";
+	present += "<tr>";
+	present += "<td>From Date<\/td>";
+	present += "<td><input class=\"textbox-n\" type=\"text\" onfocus=\"(this.type='date')\" id=\"fDate\"><\/td>";
+	present += "<\/tr>";
+	present += "<tr>";
+	present += "<td>To Date<\/td>";
+	present += "<td><input class=\"textbox-n\" type=\"text\" onfocus=\"(this.type='date')\" id=\"tDate\"> <\/td>";
+	present += "<\/tr>";
+	present += "<tr>";
+	present += "<td><input type=\"submit\"  id=\"subpresent\">";
+	present += "<\/tr>";
+	present += "<\/table>";
+	present += "<\/div>";
+	$('.present')[0].innerHTML = present;
+			
+}
