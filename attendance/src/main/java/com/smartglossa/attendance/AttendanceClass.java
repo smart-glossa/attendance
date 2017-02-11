@@ -92,21 +92,23 @@ public class AttendanceClass {
 		}
 		return obj;
 	}
-	public JSONObject getPresents(String fromdate,String todate)throws SQLException{
-	JSONObject obj = new JSONObject();
+	public JSONArray getPresents(String fromdate,String todate)throws SQLException{
+		JSONArray array = new JSONArray();
 	try {
 		String query = "select * from attendance where date between '"+fromdate+"' AND '"+todate+"'";
 		rs = stmt.executeQuery(query);
-		if(rs.next()){
-			obj.put("userId", rs.getInt("userId"));
+		while(rs.next()){
+			JSONObject obj = new JSONObject();
+			obj.put("uId", rs.getInt("userId"));
 			obj.put("present",rs.getBoolean("present"));
 			obj.put("reason", rs.getString("reason"));
+			array.put(obj);
 		}
 	} finally {
 		// TODO: handle finally clause
 		closeConnection();
 	}
-	return obj;
+	return array;
 	}
 	private void openConnection() throws SQLException, ClassNotFoundException {
 		Class.forName("com.mysql.jdbc.Driver");

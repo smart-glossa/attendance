@@ -30,7 +30,7 @@ function user(){
 	user += "<\/table>";
 	user += "<\/div>";
 	user += "<div class=\"getAllAtten\"><\/div>";
-	$('.user')[0].innerHTML = user;
+	$('.use')[0].innerHTML = user;
 }
 function attendance(){
 	var atten = "";
@@ -59,7 +59,7 @@ function attendance(){
 	atten += "<\/tr>";
 	atten += "<\/table>";
 	atten += "<\/div>";
-	$('.atten')[0].innerHTML = atten;
+	$('.use')[0].innerHTML = atten;
 }
 function present(){
 	var present = "";
@@ -79,6 +79,6 @@ function present(){
 	present += "<\/tr>";
 	present += "<\/table>";
 	present += "<\/div>";
-	$('.present')[0].innerHTML = present;
+	$('.use')[0].innerHTML = present;
 			
 }

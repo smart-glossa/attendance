@@ -102,17 +102,17 @@ public class AttendanceServlet extends HttpServlet {
 				}
             	  response.getWriter().print(obj);
               }else if(op.equals("getPresents")){
-            	  JSONObject obj = new JSONObject();
+            	  JSONArray array = new JSONArray();
             	  String fromdate = request.getParameter("fromdate");
             	  String todate = request.getParameter("todate");
             	  try {
                     AttendanceClass atten = new AttendanceClass();
-                    obj = atten.getPresents(fromdate, todate);
+                    array= atten.getPresents(fromdate, todate);
     			} catch (Exception e) {
     				// TODO: handle exception
-    				obj.put("status", 0);
+    				e.printStackTrace();
     			}
-            	  response.getWriter().print(obj);
+            	  response.getWriter().print(array);
               }
     			}
 

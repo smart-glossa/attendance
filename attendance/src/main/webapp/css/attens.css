@@ -1,0 +1,123 @@
+.div{
+	margin-left: 100px;
+	margin-top:50px;
+	border: solid gray;
+	width: 200px;
+	height: 400px;
+	border-radius:10px;
+	float: left;
+	background-color: Green ;
+
+}
+.user
+	width:200px;
+	height:200px;
+	float: left;
+	margin-left: 300px;
+	margin-top: 50px;
+
+}
+.use{
+	width:300px;
+	height: 200px;
+}
+#head
+{
+    padding:3px;
+    font-size:30px;
+    text-align: center;
+   }
+  .dropbtn {
+    color: black;
+    margin-left:50px;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    float: left;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: red;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px 10px;
+
+}
+.dropdown-content p {
+    color:#000000;
+    padding: 10px 16px ;
+    text-decoration: none;
+    display: block;
+    font-size:16px;
+
+}
+
+.dropdown-content p:hover
+{
+	background-color: black;
+	color:white;
+	border-radius:15px;
+
+}
+
+.dropdown:hover .dropdown-content {
+    margin-left:200px;
+    display: block;
+    cursor: pointer;
+    background-color:lightgray;
+    color:white;
+    border-radius:10px;
+
+}
+
+
+.dropdown:hover .dropbtn {
+    background-color: gray;
+    width:200px;
+    height:30px;
+}
+.memTab {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.row:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+input[type=date]{
+	width:160px;
+}
+
+input
+{
+	height:40px;
+	weight:150px;
+	font-weight:bold;
+	font-size:20px;
+	background-color: #f8f8f8;
+    color: #555555;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    font-size: 18px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.075);
+    padding: 10px 16px;
+    font-style:italic;
+    margin-top:10px;
+    margin-left:15px;
+
+}
+

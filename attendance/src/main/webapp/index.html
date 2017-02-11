@@ -8,13 +8,49 @@
           <script type="text/javascript" src="js/atten.js"></script>
           <script type="text/javascript" src="js/attendance.js"></script>
     </head>
-    <button onclick="user()">USER</button>
+   <!--  <button onclick="user()">USER</button>
     <div class="user"></div>
     <button onclick="attendance()">ATTENDANCE</button>
     <div class="atten"></div>
     <button id="getAll">getAll</button>
     <div class="getAllAtten"></div>
     <button onclick="present()">PRESENT</button>
-    <div class="present"></div>
+    <div class="present"></div> -->
+    <h1 id="head">ATTENDANCE MANAGEMENT</h1>
+        <div class="div">
+<div class="dropdown">
+<div>
+  <p class="dropbtn"><span>USER</span></p></div>
+  <div class="dropdown-content">
+    <p onclick="user()">Add User</p> </div>
+     
+ 
+  
+</div><br><br><br>
+
+<div class="dropdown">
+<div>
+  <p class="dropbtn"><span>ATTENDANCE</span></p></div>
+  <div class="dropdown-content">
+    <p onclick="attendance()">Add Attendance</p>
+    <p id="getAll">Getall Attendance</p>
+    </div>
+   </div><br><br><br>
+   <div class="dropdown" >
+   <div>
+  <p class="dropbtn"><span>GET PRESENTS</span></p></div>
+  <div class="dropdown-content">
+		<p onclick="present()">Report</p>
+   </div>
+
+
+</div>
+</div>
+<div class="user">
+<div class="use"></div>
+<div class="present"></div>
+</div>
+
+  </div>
     </body>
 </html>
