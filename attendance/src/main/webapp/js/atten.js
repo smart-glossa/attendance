@@ -71,18 +71,18 @@ $(document).ready(function(){
 			url : url,
 			type : 'POST'
 		}).done(function(result){
-			var reslut = JSON.parse(result);
-			var table = "<table class='memTab'>";
-				table = "<tr><th>UserId</th><th>Present</th><th>reason</th></tr>";	
+			var result = JSON.parse(result);
+			var table = "<table class='tab1'>";
+				table += "<tr><th>UserId</th><th>Present</th><th>reason</th></tr>";	
 			for (var i = 0;i< result.length;i++){
 				table +="<tr>";
-				table += "<td>" +result[i].uId + "</td>";
+				table += "<td>" + result[i].uId + "</td>";
 				table += "<td>" + result[i].present + "</td>";
 				table += "<td>" + result[i].reason + "</td>";
 				table += "</tr>";
 			}
 			table += "</table>";
-			$(".present")[0].innerHML = table;
+			$(".use")[0].innerHTML = table;
 		});
 	});
 });

@@ -5,11 +5,11 @@
 	width: 200px;
 	height: 400px;
 	border-radius:10px;
-	float: left;
+	float: left; 
 	background-color: Green ;
 
 }
-.user
+.user{
 	width:200px;
 	height:200px;
 	float: left;
@@ -38,7 +38,6 @@
 .dropdown {
     position: relative;
     display: inline-block;
-
 }
 .dropdown-content {
     display: none;
@@ -55,17 +54,13 @@
     text-decoration: none;
     display: block;
     font-size:16px;
-
 }
-
 .dropdown-content p:hover
 {
 	background-color: black;
 	color:white;
 	border-radius:15px;
-
 }
-
 .dropdown:hover .dropdown-content {
     margin-left:200px;
     display: block;
@@ -73,16 +68,13 @@
     background-color:lightgray;
     color:white;
     border-radius:10px;
-
 }
-
-
 .dropdown:hover .dropbtn {
     background-color: gray;
     width:200px;
     height:30px;
 }
-.memTab {
+.tab1 {
     border-collapse: collapse;
     width: 100%;
 }
