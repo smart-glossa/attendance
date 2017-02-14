@@ -42,14 +42,14 @@ $(document).ready(function(){
 		}).done(function(result) {
 			var res = JSON.parse(result);
 			 var length = res.length;
-			var table = "<table border=2px>";
+			var table = "<table border=3px>";
 				table += "<tr><th>User Id</th><th>Date</th><th>Present</th><th>Reason</th></tr>"
 			for (var i = 0; i < res.length; i++) {
 				table += "<tr>"
 			    table += "<td>" + res[i].userId + "</td>";
 	            table += "<td>" + res[i].date + "</td>";
 	            var Atten = res[i].present;
-				if(Atten==1){
+				if(Atten == true){
 					var aa = "Present";
 				}else{
 					var aa = "Absent";
@@ -72,12 +72,19 @@ $(document).ready(function(){
 			type : 'POST'
 		}).done(function(result){
 			var result = JSON.parse(result);
-			var table = "<table class='tab1'>";
-				table += "<tr><th>UserId</th><th>Present</th><th>reason</th></tr>";	
+			var table = "<table class='tab1' border=3px>";
+				table += "<tr><th>UserId</th><th>Date</th><th>Present</th><th>reason</th></tr>";	
 			for (var i = 0;i< result.length;i++){
 				table +="<tr>";
 				table += "<td>" + result[i].uId + "</td>";
-				table += "<td>" + result[i].present + "</td>";
+				table += "<td>" + result[i].date + "</td>";
+				 var Atten = result[i].present;
+					if(Atten == true){
+						var aa = "Present";
+					}else{
+						var aa = "Absent";
+					}
+					table += "<td>" + aa + "</td>";
 				table += "<td>" + result[i].reason + "</td>";
 				table += "</tr>";
 			}

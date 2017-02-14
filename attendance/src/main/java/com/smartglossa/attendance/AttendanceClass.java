@@ -101,6 +101,7 @@ public class AttendanceClass {
 			JSONObject obj = new JSONObject();
 			obj.put("uId", rs.getInt("userId"));
 			obj.put("present",rs.getBoolean("present"));
+			obj.put("date", rs.getString("date"));
 			obj.put("reason", rs.getString("reason"));
 			array.put(obj);
 		}
